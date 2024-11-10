@@ -1,0 +1,57 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+        "name": "Samsung S22 Ultra",
+        "description": "Лучший андроид смартфон в мире",
+        "image": "",
+        "category": 2,
+        "price": 100001,
+        "created_at": "2024-05-05",
+        "updated_at": "2024-09-09"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "Чернозем",
+        "description": "Темная плодородная и рыхлая земля",
+        "image": "",
+        "category": 3,
+        "price": 500,
+        "created_at": "2024-10-10",
+        "updated_at": "2024-11-11"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "Суглинок",
+        "description": "Рыжий грунт с большим содержанием глины",
+        "image": "",
+        "category": 3,
+        "price": 100,
+        "created_at": "2024-10-10",
+        "updated_at": "2024-11-11"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Смартфоны",
+        "description": "Мобильные телефона для личного использования"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Грунт",
+        "description": "Грунты различного качества"
+    }
+}
+]
