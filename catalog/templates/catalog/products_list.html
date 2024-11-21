@@ -1,0 +1,24 @@
+{% extends 'catalog/main.html' %}
+{% load mytags %}
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+        {% for product in products %}
+        <div class="col" >
+          <div class="card shadow-sm text-center">
+              <img src='{{ product.image | media_filter }}' class="card-img-top" width="100%" height="250" alt="...">
+              <div class="card-body">
+                  <p class="card-text">{{ product.description|truncatechars:60 }}</p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="btn">
+                    <button type="button" class="btn btn-primary">Связаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
