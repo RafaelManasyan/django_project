@@ -12,12 +12,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='product',
+            model_name='products',
             name='category',
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='category', to='catalog.category', verbose_name='Категория'),
         ),
         migrations.AlterField(
-            model_name='product',
+            model_name='products',
             name='image',
             field=models.ImageField(blank=True, upload_to='', verbose_name='Изображение'),
         ),
