@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% block title %} Создание записи {% endblock %}
+{% block content %}
+<div class="container">
+        <div class="col-6">
+            <form class="row" method="post" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="button btn-primary">
+                    {% if object %}
+                    Обновить
+                    {% else %}
+                    Создать
+                    {% endif %}
+                </button>
+                <div class="btn">
+                    <a role="button" class="btn btn-primary" href="{% url 'blog:article_list' %}"> Назад </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
