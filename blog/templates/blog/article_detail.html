@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load mytags %}
+{% block title %} Записи {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+        <div class="col" >
+          <div class="card shadow-sm text-center">
+              <img src='{{ object.preview_img | media_filter }}' class="card-img-top" width="100%" height="250" alt="...">
+              <div class="card-body">
+                  <p class="card-text">{{ object.content }}</p>
+                  <div class="d-grid gap-2 col-6 mx-auto">Views: {{ object.views_count }}</div>
+                  <div>
+                      <a role="button" class="btn btn-secondary" href= "{% url 'blog:article_list' %}">Назад</a>
+                      <a role="button" class="btn btn-primary" href= "{% url 'blog:article_update' article.pk %}">Изменить</a>
+                      <a role="button" class="btn btn-primary" href= "{% url 'blog:article_delete' article.pk %}">Удалить</a>
+                  </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
