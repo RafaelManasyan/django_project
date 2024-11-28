@@ -12,7 +12,9 @@
   </div>
   <div class="card-footer text-body-secondary">
     <div class="btn">
-      <button type="button" class="btn btn-primary">Связаться</button>
+      <a role="button" class="btn btn-danger" href= "{% url 'catalog:product_delete' product.pk %}">Удалить</a>
+      <a role="button" class="btn btn-primary" href= "{% url 'catalog:product_update' product.pk %}">Изменить</a>
+      <a role="button" class="btn btn-secondary" href= "{% url 'catalog:product_list' %}">Назад</a>
     </div>
   </div>
 </div>
