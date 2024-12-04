@@ -11,5 +11,14 @@
         <li class="nav-item"><a href="{% url 'blog:article_list' %}" class="nav-link">Блог</a></li>
         <li class="nav-item"><a href="{% url 'catalog:product_create' %}" class="nav-link">Создать продукт</a></li>
       </ul>
+      {% if user.is_authenticated %}
+      <form method="post" action="{% url 'users:logout' %}">
+        {% csrf_token %}
+        <button class="nav-item" type="submit">Выйти</button>
+      </form>
+        {% else %}
+          <a class="nav-item"><a href="{% url 'users:login' %}" class="nav-link">Войти</a></a>
+          <a class="nav-item"><a href="{% url 'users:register' %}" class="nav-link">Зарегистрироваться</a></a>
+        {% endif %}
     </header>
 </div>
