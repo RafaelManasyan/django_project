@@ -27,7 +27,7 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_form_class(self):
         user = self.request.user
-        if user.has_perm('can_unpublish_product'):
+        if user.has_perm('catalog.can_unpublish_product'):
             return ProductModeratorForm
         raise PermissionError
 

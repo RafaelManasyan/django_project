@@ -12,8 +12,10 @@
   </div>
   <div class="card-footer text-body-secondary">
     <div class="btn">
+      {% if perms.catalog.can_delete_product %}
       <a role="button" class="btn btn-danger" href= "{% url 'catalog:product_delete' product.pk %}">Удалить</a>
-      {% if perms.user.can_unpublish_product %}
+      {% endif %}
+      {% if perms.catalog.can_unpublish_product %}
       <a role="button" class="btn btn-primary" href= "{% url 'catalog:product_update' product.pk %}">Изменить</a>
       {% endif %}
       <a role="button" class="btn btn-secondary" href= "{% url 'catalog:product_list' %}">Назад</a>
