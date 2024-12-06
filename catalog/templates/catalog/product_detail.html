@@ -7,7 +7,7 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ object.name }}</h5>
-    <p class="card-text">{{ object.description }}</p>
+    <p class="card-text">{{ object.description|truncatechars:60 }}</p>
     <p class="card-text">Цена в рублях за единицу: {{ object.price }}</p>
   </div>
   <div class="card-footer text-body-secondary">
