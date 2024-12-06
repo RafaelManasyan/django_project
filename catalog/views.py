@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
-from .forms import ProductForm
+from .forms import ProductForm, ProductModeratorForm
 from .models import Product
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic import ListView, DetailView, TemplateView
@@ -24,6 +24,12 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
+
+    def get_form_class(self):
+        user = self.request.user
+        if user.has_perm('can_unpublish_product'):
+            return ProductModeratorForm
+        raise PermissionError
 
     def get_success_url(self):
         return reverse_lazy('catalog:product_detail', kwargs={'pk': self.object.pk})

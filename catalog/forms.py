@@ -33,3 +33,9 @@ class ProductForm(forms.ModelForm):
         if price < 0:
             raise ValidationError('Цена должна быть не отрицательной')
         return price
+
+
+class ProductModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('is_published', )

@@ -21,6 +21,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Цена за покупку')
     created_at = models.DateField(verbose_name='Дата создания продукта')
     updated_at = models.DateField(verbose_name='Дата последних изменений')
+    is_published = models.BooleanField(verbose_name='Опубликовать', default='False')
 
     def __str__(self):
         return f'''Наименование - {self.name}. Цена - {self.price}.'''
@@ -28,3 +29,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
+        permissions = [
+            ('can_unpublish_product', 'Can unpublish product'),
+            ('can_delete_product', 'Can delete product'),
+        ]
