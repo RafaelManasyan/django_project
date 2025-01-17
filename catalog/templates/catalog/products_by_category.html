@@ -1,0 +1,32 @@
+{% extends 'catalog/main.html' %}
+{% load mytags %}
+{% block title %}Продукты в категории: {{ category.name }}{% endblock %}
+{% block content %}
+<h1>Категория: {{ category.name }}</h1>
+<p>{{ category.description }}</p>
+
+{% if products %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+        {% for product in products %}
+        <div class="col" >
+          <div class="card shadow-sm text-center">
+              <img src='{{ product.image | media_filter }}' class="card-img-top" width="100%" height="250" alt="...">
+              <div class="card-body">
+                  <p class="card-text">{{ product.name }}</p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="btn">
+                    <a role="button" class="btn btn-primary" href="#">Связаться</a>
+                   <a role="button" class="btn btn-primary" href="{% url 'catalog:product_detail' product.pk %}">Посмотреть</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<p>В этой категории пока нет продуктов.</p>
+{% endif %}
+{% endblock %}
