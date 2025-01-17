@@ -9,7 +9,7 @@ BLACK_LIST = ['казино', 'криптовалюта', 'крипта', 'би�
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = "__all__"
+        exclude = ('owner',)
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
@@ -33,3 +33,9 @@ class ProductForm(forms.ModelForm):
         if price < 0:
             raise ValidationError('Цена должна быть не отрицательной')
         return price
+
+
+class ProductModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('is_published', )
